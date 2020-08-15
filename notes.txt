@@ -1,0 +1,64 @@
+
+Check .NET version
+    dotnet --info
+
+Solution Setup
+
+    dotnet new sln
+    dotnet new webapi -o API
+    dotnet sln add API
+
+    dotnet new classlib -o Core
+    dotnet sln add Core
+
+    dotnet new classlib -o Infrastructure
+    dotnet sln add Infrastructure
+
+    ...Api> dotnet add reference ../Infrastructure
+    ...Infrastructure> dotnet add reference ../Core
+
+    root> dotnet restore
+
+Certificates
+
+    Check for certificate with
+        dotnet dev-certs https
+        
+    Trust this with 
+        dotnet dev-certs https -t
+
+Migrations
+
+    Install the EF CLI
+	dotnet tool install --global dotnet-ef --version 3.1.1
+		
+    Install NuGet package
+        Microsoft.EntityFrameworkCore.Design
+
+    EF Commands
+        dotnet ef -h
+
+    Create a Migration
+        dotnet ef migrations add InitialCreate -o Data/Migrations
+        dotnet ef migrations add InitialCreate -p Infrastructure -s Api -o Data/Migrations
+
+    Create the database
+        dotnet ef database update
+
+    Insert Data
+        INSERT INTO `Entities` (Id, Name)
+        VALUES 
+            (1, 'Entity 1'),
+            (2, 'Entity 2'),
+            (3, 'Entity 3');
+        
+    Remove a Migration
+        dotnet ef migrations remove
+        dotnet ef migrations remove -p Infrastructure -s Api
+
+    Drop the database
+        dotnet ef database drop
+        dotnet ef database drop -p Infrastructure -s Api
+
+AutoMapper
+    Add NuGet package AutoMapper.Extensions.Microsoft.DependencyInjection to Api Project

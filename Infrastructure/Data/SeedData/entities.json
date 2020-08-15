@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "Name": "Entity 1",
+	"RelatedEntityId": 1
+  },
+  {
+    "Id": 2,
+    "Name": "Entity 2",
+	"RelatedEntityId": 2
+  },
+  {
+    "Id": 3,
+    "Name": "Entity 3",
+	"RelatedEntityId": 3
+  },
+  {
+    "Id": 4,
+    "Name": "Entity 4",
+	"RelatedEntityId": 4
+  }
+]
