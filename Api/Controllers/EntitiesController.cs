@@ -1,14 +1,12 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Errors;
 using AutoMapper;
 using Core.Dtos;
 using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers
 {
@@ -39,13 +37,15 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<EntityDto>> GetEntity(int id)
         {
             var entity = await _entityRepository.GetFullEntityByIdAsync(id);
 
             if (entity == null)
             {
-                return NotFound(new ApiResponse(404));
+                return NotFound(new ApiResponse(StatusCodes.Status404NotFound));
             }
 
             return Ok(_mapper.Map<Entity, EntityDto>(entity));

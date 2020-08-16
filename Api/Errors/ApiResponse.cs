@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace Api.Errors
 {
@@ -17,10 +18,10 @@ namespace Api.Errors
         {
             return statusCode switch
             {
-                400 => "Bad Request",
-                401 => "Not Authorised",
-                404 => "Resource Not Found",
-                500 => "Server Error",
+                StatusCodes.Status400BadRequest => "Bad Request",
+                StatusCodes.Status401Unauthorized => "Not Authorised",
+                StatusCodes.Status404NotFound => "Resource Not Found",
+                StatusCodes.Status500InternalServerError => "Server Error",
                 _ => null
             };
         }

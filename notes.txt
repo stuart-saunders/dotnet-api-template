@@ -62,3 +62,8 @@ Migrations
 
 AutoMapper
     Add NuGet package AutoMapper.Extensions.Microsoft.DependencyInjection to Api Project
+
+Swagger
+    Add NuGet packages
+        Swashbuckle.AspNetCore.SwaggerGen
+        Swashbuckle.AspNetCore.SwaggerUI
