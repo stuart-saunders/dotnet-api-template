@@ -56,6 +56,12 @@ Migrations
         dotnet ef migrations remove
         dotnet ef migrations remove -p Infrastructure -s Api
 
+    Downgrade a Database to a Previous Migration
+        dotnet ef database update MigrationName
+        or
+        dotnet ef database update 0 (to go back to the start)
+
+
     Drop the database
         dotnet ef database drop
         dotnet ef database drop -p Infrastructure -s Api
