@@ -40,6 +40,9 @@ namespace Api
             services.AddDbContext<ApplicationDbContext>(x => 
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection"))
             );
+            // services.AddDbContext<ApplicationDbContext>(x => 
+            //     x.UseSqlServer(_config.GetConnectionString("DefaultConnection"))
+            // );
             services.AddScoped<IEntityRepository, EntityRepository>();
             services.AddScoped<IRelatedEntityRepository, RelatedEntityRepository>();
             services.AddAutoMapper(typeof(MappingProfiles));
