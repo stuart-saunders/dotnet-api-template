@@ -1,4 +1,4 @@
-namespace Core.Dtos
+namespace Api.Dtos
 {
     public class EntityDto
     {

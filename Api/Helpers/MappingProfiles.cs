@@ -1,5 +1,5 @@
 using AutoMapper;
-using Core.Dtos;
+using Api.Dtos;
 using Core.Entities;
 
 namespace Api.Helpers

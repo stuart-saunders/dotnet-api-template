@@ -12,6 +12,11 @@ namespace Api.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        public ErroringController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet("badrequest")]
         public ActionResult GetBadRequest()
         {
